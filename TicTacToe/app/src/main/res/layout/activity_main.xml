@@ -29,18 +29,6 @@
                     android:layout_height="wrap_content" android:id="@+id/button2"
                     android:onClick="startTwoPlayersGame"/>
         </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <Button
-                    android:text="@string/settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button3"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <Button
-                    android:text="@string/exit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button4"/>
-        </TableRow>
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">

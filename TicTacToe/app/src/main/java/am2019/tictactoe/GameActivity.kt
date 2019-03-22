@@ -1,5 +1,6 @@
 package am2019.tictactoe
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
@@ -7,6 +8,7 @@ import android.widget.Button
 import android.widget.TableRow
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
+import kotlin.math.floor
 
 
 class GameActivity : AppCompatActivity() {
@@ -28,9 +30,13 @@ class GameActivity : AppCompatActivity() {
         val outMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(outMetrics)
         val density = resources.displayMetrics.density
-        val width = dpToPx((outMetrics.widthPixels / density /size).toInt())
+        val pixels = when (this.resources.configuration.orientation) {
+            Configuration.ORIENTATION_PORTRAIT -> outMetrics.widthPixels
+            Configuration.ORIENTATION_LANDSCAPE -> floor(outMetrics.heightPixels * 0.7).toInt()
+            else -> outMetrics.widthPixels
+        }
+        val width = dpToPx((pixels / density /(size)).toInt())
         val params = TableRow.LayoutParams(width, width)
-        params.setMargins(0,0,0,0)
         for (i in 0 until size) {
             val row = TableRow(this)
             for (j in 0 until size) {
